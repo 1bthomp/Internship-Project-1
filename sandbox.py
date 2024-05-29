@@ -6,20 +6,20 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from behave import given, when, then
 
-# Get the path to the ChromeDriver executable
-driver_path = ChromeDriverManager().install()
-
-# Set Chrome options for incognito mode
-chrome_options = Options()
-chrome_options.add_argument("--incognito")
-
-# Create a new Chrome browser instance
-service = Service(driver_path)
-context.driver = webdriver.Chrome(service=service, options=chrome_options)
-context.driver.maximize_window()
-
 @given('Open main page and login')
 def main_page(context):
+    # Get the path to the ChromeDriver executable
+    driver_path = ChromeDriverManager().install()
+
+    # Set Chrome options for incognito mode
+    chrome_options = Options()
+    chrome_options.add_argument("--incognito")
+
+    # Create a new Chrome browser instance
+    service = Service(driver_path)
+    driver = webdriver.Chrome(service=service, options=chrome_options)
+    driver.maximize_window()
+
     # Navigate to the URL
     context.driver.get("https://soft.reelly.io/sign-in")
     sleep(4)
@@ -37,7 +37,7 @@ def main_page(context):
     sleep(4)
 
     # Click login
-    context.driver.find_element(By.LINK_TEXT, 'Continue').click()
+    driver.find_element(By.LINK_TEXT, 'Continue').click()
     sleep(4)
 
 @when('Click on settings, subscription and payment options')
