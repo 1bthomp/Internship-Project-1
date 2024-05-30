@@ -7,6 +7,7 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from behave import Given,When,Then
 
+
 # Get the path to the ChromeDriver executable
 driver_path = ChromeDriverManager().install()
 # Set Chrome options for incognito mode
@@ -17,7 +18,6 @@ service = Service(driver_path)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 driver.maximize_window()
 from behave import given
-
 
 @given('Open main page and login')
 def main_page (context):
