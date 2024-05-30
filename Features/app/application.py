@@ -1,5 +1,6 @@
 from pages.base_page import Page
-from pages.main_page import MainPage
+from pages.sign_in_page import Page
+from pages.verify_page import Page
 
 # place all pages you will be using above as well as in the class Application
 class Application:
@@ -7,7 +8,11 @@ class Application:
         self.base_page = Page(driver)
     
     def __init__(self, driver):
-        self.main_page.Page(driver)
+        self.sign_in_page.Page(driver)
+
+    def __init__(self, driver):
+        self.verify_page.page(driver)
+
 #steps
 
 # create am app, features, and page folder
