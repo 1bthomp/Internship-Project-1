@@ -12,12 +12,12 @@ class sign_in_Page(Page):
 def send_username(self):
     self.input_text(text,*self.search_bar1)
     search_bar_1.clear()
-    search_bar_1.send_keys("Thompb55@gmail.com")
+    search_bar_1.send_keys(text)
 
 def send_password(self):
     self.input_text(text,*self.search_bar_2)
     search_bar_2.clear()
-    search_bar_2.send_keys("@qqD9Kfkpymn5Fb")
+    search_bar_2.send_keys(text)
 
 def click_continue(self)
     self.click(*self.continue_button)

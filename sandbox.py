@@ -6,7 +6,6 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from behave import given,when,then
 
-
 # Get the path to the ChromeDriver executable
 driver_path = ChromeDriverManager().install()
 # Set Chrome options for incognito mode
@@ -16,7 +15,6 @@ chrome_options.add_argument("--incognito")
 service = Service(driver_path)
 driver = webdriver.Chrome(service=service, options=chrome_options)
 driver.maximize_window()
-from behave import given
 
 @given('Open main page and login')
 def main_page (context):
@@ -41,14 +39,14 @@ def main_page (context):
     driver.find_element(By.LINK_TEXT, 'Continue').click()
     sleep(4)
 
-@When('click on settings, subscription and payment options')
+@when('click on settings, subscription and payment options')
 def settings_subs_payment (context):
 
 #Click settings (uncomment if needed)
     driver.find_element(By.LINK_TEXT, 'Settings').click()
     sleep(4)
 
-@Then('Verify subscription, back button, and upgrade plan')
+@then('Verify subscription, back button, and upgrade plan')
 def verification (context):
 
 #Click subscription

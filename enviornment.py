@@ -16,6 +16,12 @@ def before_all(context):
     context.driver = webdriver.Chrome(service=service, options=chrome_options)
     context.driver.maximize_window()
 
+    from pages.sign_in_page import SignInPage
+    from pages.verify_page import VerifyPage
+    
+    context.app = type('', (), {})()
+    context.app.sign_in_page = SignInPage(context.driver)
+    context.app.verify_page = VerifyPage(context.driver)
 def after_all(context):
     context.driver.quit()
 
